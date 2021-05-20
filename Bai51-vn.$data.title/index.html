@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT1</title>
+    <script src="vue.js"></script>
+    <style>
+        .vuong {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-for="n in 10">
+        {{n}}
+    </div>
+
+    <ul>
+        <li v-for="(menu ,index) in menus" :key="index">
+            {{menu}} với index là : {{index}}
+        </li>
+    </ul>
+    <button @click="menus.push('test')">Add new item menu</button>
+</div>
+
+
+<script>
+    //v-show ko dùng cho các thẻ ko phải là thẻ html vd như thẻ template
+    new Vue({
+        el : "#app",
+        data: {
+            menus : ['home','About','Blog','Contact','FAQ'],
+            students : [
+                {name : "Sky" ,age : 30, class:'CNTT'},
+                {name : "Phu" ,age : 31, class:'CNTT1'},
+                {name : "Lien" ,age : 32, class:'CNTT2'},
+            ]
+        
+        },
+        computed :{
+
+        }
+    });
+</script>
+</body>
+</html>

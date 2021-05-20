@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT1</title>
+    <script src="vue.js"></script>
+    <style>
+        .vuong {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(menu,i) in menus">{{menu}} với index là : {{ i }}</li>
+    </ul>
+    <template v-for="(menu,index) in menus">
+        <p>{{menu}}</p>
+        <p>{{index}}</p>
+    </template>
+
+    <ul>
+        <h1>Lấy đối tượng của object</h1>
+        <!-- <li v-for="student in students">{{student.name}}</li> -->
+        <li v-for="student in students">
+            <div v-for="(value,key,index) in student">
+                key: {{key}} : {{value}} :({{index}})
+            </div>
+        </li>
+
+    </ul>
+</div>
+
+
+<script>
+    //v-show ko dùng cho các thẻ ko phải là thẻ html vd như thẻ template
+    new Vue({
+        el : "#app",
+        data: {
+            menus : ['home','About','Blog','Contact','FAQ'],
+            students : [
+                {name : "Sky" ,age : 30, class:'CNTT'},
+                {name : "Phu" ,age : 31, class:'CNTT1'},
+                {name : "Lien" ,age : 32, class:'CNTT2'},
+            ]
+        
+        },
+        computed :{
+
+        }
+    });
+</script>
+</body>
+</html>

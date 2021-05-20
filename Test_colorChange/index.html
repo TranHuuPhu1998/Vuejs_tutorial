@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="vue.js"></script>
+    <style>
+        #app {
+            display: flex;
+        }
+        
+        .vuong {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background-color: rgb(18, 19, 16);
+        }
+        .xanhduong {
+            background-color: blue;
+        }
+        .do {
+            background-color: red;
+        }
+        .vang {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="vuong"  v-on:click="changeColor" :class="{do:quanlydo}"></div>
+        <div class="vuong"  v-on:click="changeColorV" :class="{vang:quanlyvang}"></div>
+        <div class="vuong"  v-on:click="changeColorY" :class="{xanhduong:quanlyxanh}"></div>
+
+    </div>
+
+    <script>
+      new Vue({
+      el: '#app',
+      data: {
+          quanlydo: false,
+          quanlyvang :false,
+          quanlyxanh :false
+      },
+      methods: {
+            changeColorV : function(){
+                this.quanlyvang = !this.quanlyvang;
+            },
+          changeColor : function() {
+              this.quanlydo = !this.quanlydo;
+          },
+          changeColorY : function(){
+            this.quanlyxanh = !this.quanlyxanh;
+        }
+      },
+});
+
+    </script>
+
+</body>
+
+</html>

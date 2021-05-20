@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+        <!-- <div id="obj">
+            <h1>Bam nut để tăng giá trị</h1>
+            <button v-on:click="tangGiaTri">Ấn đi</button>
+            <p>Giá trị : {{dem}}</p>
+            <p v-on:mousemove="tinhToaDo">Tao do cua chuot : {{x}} / {{y}}</p>
+        </div> -->
+        <div id="obj">
+            <div v-on:mouseover="tinhToaDo">
+                <h1>Bam nut để tăng giá trị</h1>
+                <button v-on:click="tangGiaTri">Ấn đi</button>
+                <button v-on:click="dem++">Ấn đi theo Javascript </button>
+                <span v-on:mouseover.stop="">Dung su kien</span>
+                <p>Giá trị : {{dem}}</p>
+                <p>Giá trị : {{dem > 20 ? 'Ban da vuoc qua giới hạng' : 'ban con nằm trong gới hạng'}}</p>
+                <p>Tao do cua chuot : {{x}} / {{y}}</p>
+            </div>
+            <!-- <input type="text" v-on:keyup.enter.space="banPhim"> -->
+            <input type="text" @:keyup.enter.space="banPhim">
+        </div>
+
+
+    <script>
+        new Vue({
+            el: '#obj',
+            data : {
+                dem:0,
+                x:0,
+                y:0
+            },
+            methods : {
+                tangGiaTri : function(){
+                    this.dem++;
+                },
+                tinhToaDo : function(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                banPhim : function(){
+                    alert("hello")
+                }
+            }
+        })
+    </script>
+</html>

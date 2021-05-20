@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+    <!-- <script src="https://unpkg.com/marked@0.3.6"></script> -->
+    <script src="vue.js"></script>
+
+<div id="editor">
+  <textarea value="input" @input="update"></textarea>
+  <div v-html="compiledMarkdown">kq</div>
+</div>
+</head>
+
+    <div id="editor">
+        <textarea value="input" @input="update"></textarea>
+        <div v-html="compiledMarkdown"></div>
+    </div>
+
+      <script>
+          new Vue({
+                el: '#editor',
+                data: {
+                    input: 'hello',
+                    input2 : 'hi'
+                },
+                computed: {
+                    compiledMarkdown: function () {
+                        console.log("computed");                     
+                        return this.input;
+                    }
+                },
+                methods: {
+                    update: function (e) {
+                        this.input = e.target.value
+                    }
+                },
+                watch :{
+                    input : function(){
+                        console.log("watch");
+                        
+                    }
+                }
+                })
+      </script>
+
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT1</title>
+    <script src="vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <h1>{{title}}</h1>
+    <h1>After computed : {{lowercaseTitle}}</h1>
+    <template v-if="!showPara">
+        <button @click="show" >Show</button>
+    </template>
+    <template v-else >
+        <button  @click="show" >No-Show</button>
+    </template>
+
+    <p v-if="showPara">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt ut eum facere voluptatum magnam excepturi non laboriosam quidem reprehenderit hic assumenda quod vero nobis commodi veniam autem consectetur sequi dolorem cum est facilis, 
+        praesentium sunt alias voluptas. Recusandae, tempora rerum!
+    </p>
+</div>
+<div id="app2">
+    <h1>title App2</h1>
+    <p>{{title}}</p>
+</div>
+
+
+<script>
+    //v-show ko dùng cho các thẻ ko phải là thẻ html vd như thẻ template
+    new Vue({
+        el : "#app",
+        data: {
+            showPara:false,
+            title : 'The Vue Js Instace'
+        },
+        methods :{
+            show : function(){
+                this.showPara = !this.showPara;
+                this.updateTitle('Vue JS Instance (upDated)');
+            },
+            updateTitle : function(title){
+                console.log(title);
+                
+                this.title = title; 
+            }
+        },
+        computed : {
+            lowercaseTitle : function(){
+                console.log(this);
+                
+                return this.title.toLowerCase();
+            }
+        },
+        watch :{
+            title: function(value){
+                alert('Title change text !'+ value)
+            }
+        }
+    });
+
+    new Vue({
+        el : '#app2',
+        data :{
+            title : 'The second Vue JS instance'
+        }
+    })
+</script>
+</body>
+</html>

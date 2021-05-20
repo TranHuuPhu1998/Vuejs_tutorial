@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT1</title>
+    <script src="vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <div v-for="n in 10">
+        {{n}}
+    </div>
+
+    <ul>
+        <li v-for="(menu ,index) in menus" :key="index">
+            {{menu}} với index là : {{index}}
+        </li>
+    </ul>
+    <button @click="refs" ref="infoButton">ssssssssss</button>
+    <button @click="pushname('test')" ref="ifff">Add new item menu</button>
+    <!-- component -->
+    <hello></hello>
+</div>
+<!-- ko hiện ra do rằm ngoài instran -->
+<hello></hello>
+<script>
+    //v-show ko dùng cho các thẻ ko phải là thẻ html vd như thẻ template
+    
+    Vue.component('hello',{
+        template : '<p>component</p>'
+    })
+    var data = {
+            menus : ['home','About','Blog','Contact','FAQ'],
+            students : [
+                {name : "Sky" ,age : 30, class:'CNTT'},
+                {name : "Phu" ,age : 31, class:'CNTT1'},
+                {name : "Lien" ,age : 32, class:'CNTT2'},
+            ]
+        
+        },
+    var vn = new Vue({
+        el : "#app",
+        data: data,
+        methods :{
+            pushname : function(name){
+                console.log(this.$refs);
+                this.$refs.ifff.innerText = "SHow show"
+                this.menus.push(name);
+            },
+            refs : function(){
+                console.log(this.$refs);
+            }
+        }
+    });
+
+    console.log(vn.$refs.infoButton.innerText = "a")
+</script>
+</body>
+</html>

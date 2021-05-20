@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+        <div id="app">
+            <button @click="changeLink"> Click to Change link </button>
+            <a v-bind:href="linkVal">Link</a>
+        </div>
+
+    <script>
+        new Vue({
+            el : '#app',
+            data : {
+                linkVal : 'https://www.google.com'
+            },
+            methods : {
+                changeLink : function(){
+                    this.linkVal = 'https://www.facebook.com'
+                }
+            }
+        })
+    </script>
+</html>

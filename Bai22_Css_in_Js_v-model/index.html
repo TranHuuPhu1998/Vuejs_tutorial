@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT1</title>
+    <script src="vue.js"></script>
+    <style>
+        .vuong {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .do {
+            background-color: red;
+        }
+
+        .xanhduong {
+            background-color: blue;
+        }
+
+        .xanhcay {
+            background-color: green;
+        }
+        .vang {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="vuong" @click="quanlido =! quanlido" :class="{do: quanlido}" ></div>
+    <div class="vuong" :class="[color , {do :quanlido}]"></div>
+    <div class="vuong" :class="{do:quanlido}" ></div>
+    <hr>
+    <p> 1 + 2 </p>
+    <input type="text" v-model="color" >
+</div>
+
+<script>
+    //nhập giá trị đúng cua
+    new Vue({
+        el : "#app",
+        data: {
+            quanlido: false,
+            color:'xanhcay'
+        },
+    });
+</script>
+</body>
+</html>

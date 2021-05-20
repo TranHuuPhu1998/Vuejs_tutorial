@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+        <div id="app">
+            <p>Gia tri A : {{tanga}}</p>
+            <p>Gia tri B : {{tangb}}</p>
+            <p>Gia tri A : {{tangaf()}}</p>
+            <p>Gia tri B : {{tangbf()}}</p>
+            <button v-on:click="a++">Tang a</button>
+            <button v-on:click="b++">Tang b</button>
+        </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data : {
+                a : 0,
+                b : 0
+            },
+            // computed chạy trước methods
+            // computed thực hiện như một fuc nhưng nó chỉ coi là một thuộc tính 
+            computed : {
+                tanga : function(){
+                    console.log("computed");
+                    console.log("goi function a");
+                    return this.a;
+                },
+                tangb : function(){
+                    console.log("computed");
+                    console.log("goi function b");
+                    return this.b;
+                },
+            },
+
+            methods : {
+                tangaf : function(){
+                    console.log("methods");
+                    console.log("goi function a");
+                    return this.a;
+                },
+                tangbf : function(){
+                    console.log("methods");
+                    console.log("goi function b");
+                    return this.b;
+                },
+            }
+        })
+    </script>
+</html>

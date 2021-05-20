@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+
+        <div id="obj">
+            <p v-once> 
+               {{noidung}} - {{ showPost() }}
+            </p>
+            <a v-bind:href="link">My fb</a>
+           <p v-html="testMaHtml"></p>
+        </div>
+
+
+    <script>
+        new Vue({
+            el: '#obj',
+            data : {
+                noidung : 'chao cac ban',
+                body : 'ádaaaaaaa',
+                title : 'Vue Js',
+                link:'https://www.facebook.com/photo.php?fbid=1220216801829961&set=pcb.2727099410741010&type=3&theater&ifg=1',
+                testMaHtml : ' <a href="https....dsjsksk">Get Password</a>'
+            },
+            methods : {
+                sayHello :function(){
+                    document.write('Say Hello')
+                },
+                showPost :function(){
+                    this.noidung = 'Noi dung vua cap nhat'
+                    return this.noidung;
+                }
+            }
+        })
+    </script>
+</html>

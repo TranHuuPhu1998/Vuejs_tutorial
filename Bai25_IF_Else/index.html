@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT1</title>
+    <script src="vue.js"></script>
+    <style>
+        .vuong {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <p> You're doctor ? </p>
+    <p v-if="xacdinh">Yes , I am <span>((((((((((</span></p>
+    <p v-else>No , I am a teacher</p>    
+    <button @click="xacdinh =! xacdinh">Change condition</button>
+</div>
+
+<script>
+    new Vue({
+        el : "#app",
+        data: {
+            xacdinh:true
+        },
+        computed :{
+
+        }
+    });
+</script>
+</body>
+</html>
